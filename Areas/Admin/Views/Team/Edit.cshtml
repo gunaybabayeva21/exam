@@ -1,0 +1,57 @@
+﻿@using Lumia.Models;
+@using Lumia.ViewModels.TeamVM;
+@model TeamEditVM
+<div class="row">
+    <div class="col-md-8 col-xs-12" style="margin-left:400px; margin-top:100px">
+        <div class="white-box">
+            <form class="form-horizontal form-material" enctype="multipart/form-data" method="post">
+                <div class="form-group">
+                    <label class="col-md-12" asp-for="Name"> Name</label>
+                    <div class="col-md-12">
+                        <input asp-for="Name" placeholder="Name" class="form-control form-control-line">
+                    </div>
+                    <span class="text-denger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12" asp-for="Surname">Surname</label>
+                    <div class="col-md-12">
+                        <input asp-for="Surname" placeholder="Surname" class="form-control form-control-line">
+                    </div>
+                    <span class="text-denger" asp-validation-for="Surname"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-12" asp-for="Description">Description</label>
+                    <div class="col-md-12">
+                        <input asp-for="Description" placeholder="Description" class="form-control form-control-line">
+                    </div>
+                    <span class="text-denger" asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    < <label class="col-md-12" asp-for="Image"> Image</label>
+                    <div class="col-md-12">
+                        <input asp-for="Image" placeholder="Image" class="form-control form-control-line">
+                    </div>
+                    <span class="text-denger" asp-validation-for="Image"></span>
+                    <span></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12">Job</label>
+                    <div class="col-sm-12">
+                        <select class="form-control form-control-line" asp-for="JobId">
+                            @foreach (Job item in Model.Jobs)
+                            {
+                                <option value="@item.Id">@item.Name</option>
+                            }
+
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <button class="btn btn-success" type="Submit">Edit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
